@@ -1,0 +1,12 @@
+{{ form_start(form) }}
+    {{ form_row(form.name, {'attr': {'class': 'form-control'}}) }}
+    {{ form_row(form.length, {'attr': {'class': 'form-control'}}) }}
+    {{ form_row(form.plot, {'attr': {'class': 'form-control'}}) }}
+    <div class="col-lg-3 col-sm-6">
+        <label for="dateOrigin">Date origin</label>
+        <input id="dateOrigin" name="dateOrigin" class="form-control" type="date" />
+    </div>
+    {{ form_row(form.categories, {'attr': {'class': 'form-control'}}) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form , {'render_rest': false}) }}
+{#  #}

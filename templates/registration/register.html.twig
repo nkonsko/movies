@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    {% for flashError in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+
+    <h1>Register</h1>
+
+
+{#    <h1 class="h3 mb-3 font-weight-normal">Register</h1>#}
+{#    <label for="inputUsername">Username</label>#}
+{#    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>#}
+{#    <label for="inputPassword">Password</label>#}
+{#    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>#}
+
+    {{ form_start(registrationForm) }}
+    <div class="my-custom-class-for-errors">
+        {{ form_errors(registrationForm) }}
+    </div>
+
+    <div class="row">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">{{ form_label(registrationForm.username) }}</label>
+            {{ form_widget(registrationForm.username, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">{{ form_label(registrationForm.plainPassword, 'Password') }}</label>
+            {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">{{ form_label(registrationForm.email) }}</label>
+            {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">{{ form_label(registrationForm.name) }}</label>
+            {{ form_widget(registrationForm.name, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">{{ form_label(registrationForm.surname) }}</label>
+            {{ form_widget(registrationForm.surname, {'attr': {'class': 'form-control'}}) }}
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+    {{ form_end(registrationForm) }}
+
+{% endblock %}

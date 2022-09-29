@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+
+    </style>
+{% endblock %}
+
+{% block body %}
+
+    {% for movie in movies %}
+        <div class="container border border-2 rounded-2 m-3">
+            <h4>{{ movie.name }} <span class="badge bg-dark">{{ movie.dateOrigin|date("Y") }}</span></h4>
+            <div class="container">
+                <span>{{ movie.plot|slice(0, 255) }}...</span>
+            </div>
+            <a href="{{ path('movie_show', {id: movie.id}) }}" type="button" class="btn btn-primary m-3" >Show more...</a>
+        </div>
+
+    {% endfor %}
+{% endblock %}

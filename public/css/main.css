@@ -1,0 +1,11 @@
+.carAccepted{
+    background-color: #2ca02c;
+}
+
+.carNotAccepted {
+    background-color: #b21f2d;
+}
+
+a {
+    color: black;
+}
